@@ -1,0 +1,24 @@
+<!doctype html>
+<style>
+  input {
+    width: 90%;
+  }
+</style>
+<script src='convert-imceaex-to-x500.js'></script>
+<h1>IMCEAEX (input)</h1>
+<form action='#'>
+  <input id='input' type='text' value='IMCEAEX-_O=MMS_OU=EXCHANGE+20ADMINISTRATIVE+20GROUP+20+28FYDIBOHF23SPDLT+29_CN=RECIPIENTS_CN=User6ed4e168-addd-4b03-95f5-b9c9a421957358d@mgd.domain.com'>
+</form>
+<h1>X500 (output)</h1>
+<p id='output'></p>
+<script>
+  var input = document.getElementById('input');
+  var output = document.getElementById('output');
+  function handler(e) {
+    var imceaex = input.value;
+    var x500 = convertIMCEAEXToX500(imceaex);
+    output.textContent = x500;
+  };
+  input.addEventListener('input', handler, false);
+  handler();
+</script>
